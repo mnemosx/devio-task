@@ -44,21 +44,40 @@
   </div>
   <main>
     <section class="main-col products">
-      <div class="product">
-        <img src="assets/images/isolated-pipes.svg" alt="Izolētas caurules grafisks paraugs" class="product-graphic">
+      <div class="product" onclick="toggleListVisibility('left')">
+        <div class="product-graphic"></div>
         <h3 class="product-name">Izolētas caurules</h3>
         <p class="product-description">Ražojam izolētas caurules un to veidgabalus ar darba caurules nosacīto diametru
           robežās no 20 līdz 800 mm (¾ - 32 collas). Atkarībā no pielietotās apvalkcaurules diametra, katrai darba
           caurulei ir iespējami 3 dažādi putu izolācijas slāņa biezumi.</p>
-        <button class="toggle-product-list">+</button>
+        <button id="toggle-isolated-product-list" class="toggle-product-list"></button>
+        <div id="product-list-left" class="product-list-container">
+          <ul class="product-list">
+            <li>Izolētas tērauda caurules siltumapgādei</li>
+            <li>Izolētas dubultcaurules</li>
+            <li>Izolētas speciālās caurules</li>
+            <li>Izolēti veidgabali</li>
+            <li>Komplektējošās sastāvdaļas</li>
+          </ul>
+        </div>
       </div>
-      <div class="product">
-        <img src="assets/images/plastic-pipes.svg" alt="Plastmasas caurules grafisks paraugs" class="product-graphic">
+      <div class="product" onclick="toggleListVisibility('right')">
+        <div class="product-graphic"></div>
         <h3 class="product-name">Plastmasas caurules</h3>
         <p class="product-description">Ražojam izolētas caurules un to veidgabalus ar darba caurules nosacīto
           diametru robežās no 20 līdz 800 mm (¾ - 32 collas). Atkarībā no pielietotās
           apvalkcaurules diametra, katrai darba caurulei ir iespējami 3 dažādi.</p>
-        <button class="toggle-product-list">+</button>
+        <button id="toggle-plastic-product-list" class="toggle-product-list"></button>
+        <div id="product-list-right" class="product-list-container">
+          <ul class="product-list">
+            <li>Plastmasas ūdensvada caurules</li>
+            <li>Kabeļu aizsargcaurules</li>
+            <li>Apvalkcaurules izolētām caurulēm</li>
+            <li>Elektrovadošas caurules kalnrūpniecībai</li>
+            <li>Elastīgās elektroizolācijas caurulītes no PVC</li>
+            <li>Dažāda veida stabiņi</li>
+          </ul>
+        </div>
       </div>
     </section>
     <section class="main-col about">
@@ -81,13 +100,13 @@
         <a href="#" class="btn-text btn-bg-pink btn-plus">Uzzināt vairāk</a>
       </div>
       <div class="about-images">
-        <img src="assets/images/about-1.png" alt="Poliurs cauruļu ražošana" class="about-image">
-        <img src="assets/images/about-2.png" alt="Kvalicifēts Poliurs darbinieks" class="about-image">
-        <img src="assets/images/about-3.png" alt="Metāla cauruļu griešana" class="about-image">
-        <img src="assets/images/about-4.png" alt="Poliurs cauruļu ražošana" class="about-image">
+        <div class="about-image"><img src="assets/images/about-1.png" alt="Poliurs cauruļu ražošana"></div>
+        <div class=" about-image"><img src="assets/images/about-2.png" alt="Kvalicifēts Poliurs darbinieks"></div>
+        <div class=" about-image"><img src="assets/images/about-3.png" alt="Metāla cauruļu griešana"></div>
+        <div class=" about-image"><img src="assets/images/about-4.png" alt="Poliurs cauruļu ražošana"></div>
       </div>
     </section>
-    <div class="section-separator" aria-hidden="true"></div>
+    <div class=" section-separator" aria-hidden="true"></div>
     <section class="main-col features">
       <div class="feature">
         <div class="feature-icon" aria-hidden="true"></div>
@@ -119,13 +138,15 @@
         <div class="projects-content">
           <h2 class="section-header">Mūsu <span class="bold">Projekti</span></h2>
           <p>
-            Kopš 1997. gada uzņēmums veic dažādus montāžas darbus gan Latvijas teritorijā, gan ārpus tās. Latvijā ražotā
+            Kopš 1997. gada uzņēmums veic dažādus montāžas darbus gan Latvijas teritorijā, gan ārpus tās. Latvijā
+            ražotā
             produkcija tiek izmantota Baltijas valstīs, kā arī Krievijā, Zviedrijā un Vācijā.</p>
           <div class="projects-slider">
             <div class="project">
               <span class="project-date">24.05.2020</span>
               <h4 class="project-heading">Jonavā, Lietuva</h4>
-              <p>Šogad mēs piegādājām izolētas caurules cinkā apvalkā uz Jonavu, Lietuva. Mēneš laikā mēs saražojam 3 km
+              <p>Šogad mēs piegādājām izolētas caurules cinkā apvalkā uz Jonavu, Lietuva. Mēneš laikā mēs saražojam
+                3 km
                 caurules, 80 līkumus, 36 nekustīgos balstus</p>
             </div>
             <div class="projects-nav">
@@ -203,42 +224,7 @@
       </footer>
     </div>
   </main>
-
-  <script>
-    let selectedLang = document.getElementById("selected-lang");
-    let langMenu = document.getElementById('selected-lang-menu');
-
-    const showLangMenu = () => langMenu.classList.remove("hidden");
-    const hideLangMenu = () => langMenu.classList.add("hidden");
-    const showLangMenuOnMousover = () => showLangMenu();
-    const toggleLangMenuOnClick = () => {
-      if (langMenu.classList.contains("hidden")) {
-        showLangMenu();
-        return;
-      }
-      hideLangMenu();
-    }
-
-    if (langMenu.classList.contains("hidden")) {
-      selectedLang.addEventListener("mouseover", showLangMenuOnMousover, false)
-    };
-    selectedLang.addEventListener("click", toggleLangMenuOnClick, false);
-
-    function toggleLanguage(language) {
-      if (language === "EN") {
-        selectedLang.innerHTML = "EN";
-        hideLangMenu();
-        return
-      };
-      if (language === "RU") {
-        selectedLang.innerHTML = "RU";
-        hideLangMenu();
-        return;
-      };
-      selectedLang.innerHTML = "LV";
-      hideLangMenu();
-    };
-  </script>
+  <script type="text/javascript" src="script.js"></script>
 
 </body>
 
