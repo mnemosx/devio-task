@@ -36,7 +36,7 @@ p {
 }
 
 .hidden {
-  display: none;
+  opacity: 0;
 }
 
 /* BUTTONs & LINKS */
@@ -61,8 +61,6 @@ p {
   background: linear-gradient(180deg, rgba(30, 30, 30, 0.56) 0%, rgba(30, 30, 30, 0) 30.62%), linear-gradient(0deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(assets/images/hero-1.png) center/cover no-repeat;
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
-  position: relative;
-  z-index: -1;
 }
 
 .header-container .header-nav {
@@ -73,6 +71,7 @@ p {
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 32px 0;
+  position: relative;
 }
 
 .header-container .header-nav .nav-items {
@@ -87,23 +86,61 @@ p {
   background-color: #FFFFFF;
   margin-right: 5px;
   border-radius: 20px;
-  text-transform: uppercase;
-  font-weight: 500;
   white-space: nowrap;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
-.header-container .header-nav .nav-items li:last-of-type {
-  margin-right: 0;
-  background-color: #272727;
+.header-container .header-nav .nav-items li:hover {
+  background-color: #A637A3;
+  cursor: pointer;
+}
+
+.header-container .header-nav .nav-items li:hover a {
   color: #FFFFFF;
 }
 
-.header-container .header-nav .nav-items li:last-of-type::after {
+.header-container .header-nav .nav-items li > a {
+  color: #1E1E1E;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.header-container .header-nav .nav-items #selected-lang {
+  margin-right: 0;
+  background-color: #272727;
+  list-style-type: none;
+  color: #FFFFFF;
+}
+
+.header-container .header-nav .nav-items #selected-lang::after {
   vertical-align: middle;
   content: url(assets/icons/down.svg);
   margin-left: 5px;
   display: inline-block;
   margin-top: -5px;
+}
+
+.header-container .header-nav .nav-items #selected-lang-menu {
+  position: absolute;
+  right: 0;
+  top: 80px;
+  background-color: #FFFFFF;
+  border-radius: 20px;
+  overflow: hidden;
+  -webkit-transition: opacity .3s ease-in-out;
+  transition: opacity .3s ease-in-out;
+}
+
+.header-container .header-nav .nav-items #selected-lang-menu > li {
+  list-style-type: none;
+  border-radius: 0;
+  width: 100%;
+}
+
+.header-container .header-nav .nav-items #selected-lang-menu > li:hover {
+  color: white;
 }
 
 .products {
@@ -112,6 +149,8 @@ p {
   display: -ms-flexbox;
   display: flex;
   margin-top: -297px;
+  position: relative;
+  z-index: 1;
 }
 
 .products .product {

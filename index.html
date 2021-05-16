@@ -25,18 +25,18 @@
       <nav class="header-nav">
         <img src="assets/logo.svg" alt="Uzņēmuma logo" class="logo">
         <ul class="nav-items">
-          <li>Par mums</li>
-          <li>Produkcija</li>
-          <li>Kvalitāte</li>
-          <li>Ziņas</li>
-          <li>Projekti</li>
-          <li>Atsauksmes</li>
-          <li>Kontakti</li>
-          <li class="selected-lang">LV</li>
-          <ul class="selected-lang-menu hidden">
-            <li>LV</li>
-            <li>RU</li>
-            <li>EN</li>
+          <li><a href="#">Par mums</a></li>
+          <li><a href="#">Produkcija</a></li>
+          <li><a href="#">Kvalitāte</a></li>
+          <li><a href="#">Ziņas</a></li>
+          <li><a href="#">Projekti</a></li>
+          <li><a href="#">Atsauksmes</a></li>
+          <li><a href="#">Kontakti</a></li>
+          <li id="selected-lang">LV</li>
+          <ul id="selected-lang-menu" class="hidden">
+            <li onclick="toggleLanguage('LV')">LV</li>
+            <li onclick="toggleLanguage('RU')">RU</li>
+            <li onclick="toggleLanguage('EN')">EN</li>
           </ul>
         </ul>
       </nav>
@@ -203,6 +203,43 @@
       </footer>
     </div>
   </main>
+
+  <script>
+    let selectedLang = document.getElementById("selected-lang");
+    let langMenu = document.getElementById('selected-lang-menu');
+
+    const showLangMenu = () => langMenu.classList.remove("hidden");
+    const hideLangMenu = () => langMenu.classList.add("hidden");
+    const showLangMenuOnMousover = () => showLangMenu();
+    const toggleLangMenuOnClick = () => {
+      if (langMenu.classList.contains("hidden")) {
+        showLangMenu();
+        return;
+      }
+      hideLangMenu();
+    }
+
+    if (langMenu.classList.contains("hidden")) {
+      selectedLang.addEventListener("mouseover", showLangMenuOnMousover, false)
+    };
+    selectedLang.addEventListener("click", toggleLangMenuOnClick, false);
+
+    function toggleLanguage(language) {
+      if (language === "EN") {
+        selectedLang.innerHTML = "EN";
+        hideLangMenu();
+        return
+      };
+      if (language === "RU") {
+        selectedLang.innerHTML = "RU";
+        hideLangMenu();
+        return;
+      };
+      selectedLang.innerHTML = "LV";
+      hideLangMenu();
+    };
+  </script>
+
 </body>
 
 </html>
