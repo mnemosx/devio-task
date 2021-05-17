@@ -190,7 +190,7 @@ p {
   background: #1E1E1E;
 }
 
-.header-container .hero-carousel .carousel-cell > img {
+.header-container .hero-carousel .hero-carousel-cell > img {
   width: 100vw;
 }
 
@@ -251,22 +251,24 @@ p {
 }
 
 .products .product .toggle-product-list {
-  width: 55px;
-  height: 55px;
-  display: inline-block;
   position: absolute;
-  bottom: -25px;
-  z-index: 2;
+  display: inline-block;
   background: -webkit-gradient(linear, left top, left bottom, from(#A637A3), to(#A637A3)) top left, -webkit-gradient(linear, left top, left bottom, from(#A637A3), to(#A637A3)) top right, -webkit-gradient(linear, left top, left bottom, from(#A637A3), to(#A637A3)) bottom left, -webkit-gradient(linear, left top, left bottom, from(#A637A3), to(#A637A3)) bottom right, white;
   background: linear-gradient(#A637A3, #A637A3) top left, linear-gradient(#A637A3, #A637A3) top right, linear-gradient(#A637A3, #A637A3) bottom left, linear-gradient(#A637A3, #A637A3) bottom right, white;
-  /*thickness = 4px (2*2px) */
   background-size: calc(50% - 2px) calc(50% - 2px);
   background-repeat: no-repeat;
-  /*length = 26px (50px - 2x12px) */
   border: 12px solid #A637A3;
   border-radius: 50%;
   -webkit-transition: 0.3s ease-in-out;
   transition: 0.3s ease-in-out;
+  width: 55px;
+  height: 55px;
+  bottom: -25px;
+  z-index: 2;
+}
+
+.products .product .toggle-product-list:hover {
+  cursor: pointer;
 }
 
 .products .product:hover {
@@ -375,7 +377,7 @@ p {
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   opacity: 0;
-  z-index: 999;
+  z-index: 2;
   -webkit-transition: all 0.3s ease-in;
   transition: all 0.3s ease-in;
   cursor: pointer;
@@ -414,6 +416,99 @@ p {
 .about .about-images .about-image:hover img {
   -webkit-filter: brightness(70%);
           filter: brightness(70%);
+}
+
+.about .overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  -webkit-transform: translateY(-1000em);
+          transform: translateY(-1000em);
+  height: 100vh;
+  overflow-x: hidden;
+  z-index: 99;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.about .overlay::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(30, 30, 30, 0.8);
+}
+
+.about .overlay .about-carousel {
+  position: relative;
+  background-color: #1E1E1E;
+  width: 70vw;
+  height: 80vh;
+  z-index: 101;
+}
+
+.about .overlay .about-carousel .carousel-cell {
+  width: 100%;
+  height: 100%;
+}
+
+.about .overlay .about-carousel img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.about .overlay .about-carousel .flickity-prev-next-button {
+  background-color: #C636C2;
+  color: #FFFFFF;
+}
+
+.about .overlay .close-about-carousel {
+  position: absolute;
+  display: inline-block;
+  background: -webkit-gradient(linear, left top, left bottom, from(#A637A3), to(#A637A3)) top left, -webkit-gradient(linear, left top, left bottom, from(#A637A3), to(#A637A3)) top right, -webkit-gradient(linear, left top, left bottom, from(#A637A3), to(#A637A3)) bottom left, -webkit-gradient(linear, left top, left bottom, from(#A637A3), to(#A637A3)) bottom right, white;
+  background: linear-gradient(#A637A3, #A637A3) top left, linear-gradient(#A637A3, #A637A3) top right, linear-gradient(#A637A3, #A637A3) bottom left, linear-gradient(#A637A3, #A637A3) bottom right, white;
+  background-size: calc(50% - 2px) calc(50% - 2px);
+  background-repeat: no-repeat;
+  border: 9px solid #A637A3;
+  border-radius: 50%;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  top: 30px;
+  right: 30px;
+  padding: 15px;
+  width: 45px;
+  height: 45px;
+  z-index: 2;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.about .overlay .close-about-carousel:hover {
+  cursor: pointer;
+}
+
+.about .overlay .close-about-carousel:hover {
+  -webkit-transform: rotate(135deg);
+          transform: rotate(135deg);
+}
+
+.about .show-overlay {
+  -webkit-transform: none;
+          transform: none;
+  -webkit-transition: width .3s ease-in;
+  transition: width .3s ease-in;
 }
 
 .section-separator {

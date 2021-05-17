@@ -43,9 +43,9 @@
       </nav>
     </header>
     <div class="hero-carousel"
-      data-flickity='{ "freeScroll": "true", "contain": true, "pageDots": true, "prevNextButtons": false }'>
-      <div class="carousel-cell"><img src="assets/images/hero-1.png" alt="Uzņēmuma ražotās caurules"></div>
-      <div class="carousel-cell"><img src="assets/images/hero-2.png" alt="Izolētas caurules"></div>
+      data-flickity='{ "freeScroll": "true", "contain": true, "pageDots": false, "prevNextButtons": false }'>
+      <div class="hero-carousel-cell"><img src="assets/images/hero-1.png" alt="Uzņēmuma ražotās caurules"></div>
+      <div class="hero-carousel-cell"><img src="assets/images/hero-2.png" alt="Izolētas caurules"></div>
     </div>
   </div>
   <main>
@@ -107,14 +107,24 @@
         <a href="#" class="btn-text btn-bg-pink btn-plus">Uzzināt vairāk</a>
       </div>
       <div class="about-images">
-        <div class="about-image"><img src="assets/images/about-1.png" width="216" height="216"
+        <div class="about-image" onclick="overlayShow()"><img src="assets/images/about-1.png" width="216" height="216"
             alt="Poliurs cauruļu ražošana"></div>
-        <div class=" about-image"><img src="assets/images/about-2.png" width="216" height="216"
+        <div class="about-image" onclick="overlayShow()"><img src="assets/images/about-2.png" width="216" height="216"
             alt="Kvalicifēts Poliurs darbinieks"></div>
-        <div class=" about-image"><img src="assets/images/about-3.png" width="216" height="216"
+        <div class="about-image" onclick="overlayShow()"><img src="assets/images/about-3.png" width="216" height="216"
             alt="Metāla cauruļu griešana"></div>
-        <div class=" about-image"><img src="assets/images/about-4.png" width="216" height="216"
+        <div class="about-image" onclick="overlayShow()"><img src="assets/images/about-4.png" width="216" height="216"
             alt="Poliurs cauruļu ražošana"></div>
+      </div>
+      <div id="overlay" class="overlay">
+
+        <div class="about-carousel"
+          data-flickity='{ "imagesLoaded": true, "cellSelector": ".carousel-cell", "freeScroll": true, "pageDots": false, "contain": true }'>
+          <div class="carousel-cell"><img src="assets/images/gallery-1.png" alt="Uzņēmuma ražotās caurules"></div>
+          <div class="carousel-cell"><img src="assets/images/gallery-2.png" alt="Izolētas caurules"></div>
+          <button onclick="overlayHide()" class="close-about-carousel"></button>
+        </div>
+
       </div>
     </section>
     <div class=" section-separator" aria-hidden="true"></div>

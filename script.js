@@ -66,3 +66,13 @@ function toggleListVisibility(id) {
     : hide(productList);
 
 }
+
+// -- ABOUT SLIDESHOW
+
+function overlayShow() {
+  document.getElementById("overlay").className += " show-overlay";
+}
+
+function overlayHide() {
+  document.getElementById("overlay").classList.remove("show-overlay");
+}
