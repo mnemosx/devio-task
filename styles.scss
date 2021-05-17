@@ -27,6 +27,7 @@ body {
   font-family: $sans-serif;
   font-weight: $normal;
   color: $text-gray;
+  overflow-x: hidden;
 }
 
 *,
@@ -117,7 +118,6 @@ p {
   }
 }
 
-
 .header-container {
   height: 849px;
   background: linear-gradient(180deg, rgba($black, 0.56) 0%, rgba($black, 0) 30.62%), linear-gradient(0deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45));
@@ -206,7 +206,7 @@ p {
     left: 0;
     background: $black;
 
-    .carousel-cell>img {
+    .hero-carousel-cell>img {
       width: 100vw;
     }
   }
@@ -373,7 +373,7 @@ p {
         left: 50%;
         transform: translate(-50%, -50%);
         opacity: 0;
-        z-index: 999;
+        z-index: 2;
         @include transition;
         cursor: pointer;
       }
@@ -408,6 +408,86 @@ p {
         filter: brightness(70%);
       }
     }
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100vh;
+    // background-color: $black;
+    overflow-x: hidden;
+    z-index: 99;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .about-carousel {
+      position: relative;
+      background-color: $black;
+      width: 70vw;
+      height: 80vh;
+      z-index: 101;
+
+      .carousel-cell {
+        width: 100%;
+        height: 100%;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .flickity-prev-next-button {
+        background-color: $purple-light;
+        color: $white;
+      }
+    }
+
+    .close-about-carousel {
+      position: absolute;
+      top: 50px;
+      right: 50px;
+      padding: 20px;
+      width: 55px;
+      height: 55px;
+      display: inline-block;
+      bottom: -25px;
+      z-index: 2;
+
+      background:
+        linear-gradient($purple-dark, $purple-dark) top left,
+        linear-gradient($purple-dark, $purple-dark) top right,
+        linear-gradient($purple-dark, $purple-dark) bottom left,
+        linear-gradient($purple-dark, $purple-dark) bottom right, white;
+      /*thickness = 4px (2*2px) */
+      background-size: calc(50% - 2px) calc(50% - 2px);
+      background-repeat: no-repeat;
+      /*length = 26px (50px - 2x12px) */
+      border: 12px solid $purple-dark;
+      border-radius: 50%;
+      transform: rotate(45deg);
+      @include transition(null, ease-in-out);
+    }
+  }
+
+  .show {
+    width: 100%;
+    // opacity: .8;
+    transition: width .3s ease-in;
   }
 }
 
