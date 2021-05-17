@@ -32,11 +32,11 @@
           <li><a href="#">Projekti</a></li>
           <li><a href="#">Atsauksmes</a></li>
           <li><a href="#">Kontakti</a></li>
-          <li id="selected-lang">LV</li>
+          <li id="selected-lang" tabindex="0">LV</li>
           <ul id="selected-lang-menu" class="hidden">
-            <li onclick="toggleLanguage('LV')">LV</li>
-            <li onclick="toggleLanguage('RU')">RU</li>
-            <li onclick="toggleLanguage('EN')">EN</li>
+            <li onclick="toggleLanguage('LV')" tabindex="-1">LV</li>
+            <li onclick="toggleLanguage('RU')" tabindex="-1">RU</li>
+            <li onclick="toggleLanguage('EN')" tabindex="-1">EN</li>
           </ul>
         </ul>
       </nav>
@@ -50,7 +50,8 @@
         <p class="product-description">Ražojam izolētas caurules un to veidgabalus ar darba caurules nosacīto diametru
           robežās no 20 līdz 800 mm (¾ - 32 collas). Atkarībā no pielietotās apvalkcaurules diametra, katrai darba
           caurulei ir iespējami 3 dažādi putu izolācijas slāņa biezumi.</p>
-        <button id="toggle-isolated-product-list" class="toggle-product-list"></button>
+        <button id="toggle-isolated-product-list" class="toggle-product-list"
+          aria-label="Rādīt produktu sarakstu"></button>
         <div id="product-list-left" class="product-list-container">
           <ul class="product-list">
             <li>Izolētas tērauda caurules siltumapgādei</li>
@@ -67,7 +68,8 @@
         <p class="product-description">Ražojam izolētas caurules un to veidgabalus ar darba caurules nosacīto
           diametru robežās no 20 līdz 800 mm (¾ - 32 collas). Atkarībā no pielietotās
           apvalkcaurules diametra, katrai darba caurulei ir iespējami 3 dažādi.</p>
-        <button id="toggle-plastic-product-list" class="toggle-product-list"></button>
+        <button id="toggle-plastic-product-list" class="toggle-product-list"
+          aria-label="Rādīt produktu sarakstu"></button>
         <div id="product-list-right" class="product-list-container">
           <ul class="product-list">
             <li>Plastmasas ūdensvada caurules</li>
@@ -99,10 +101,14 @@
         <a href="#" class="btn-text btn-bg-pink btn-plus">Uzzināt vairāk</a>
       </div>
       <div class="about-images">
-        <div class="about-image"><img src="assets/images/about-1.png" alt="Poliurs cauruļu ražošana"></div>
-        <div class=" about-image"><img src="assets/images/about-2.png" alt="Kvalicifēts Poliurs darbinieks"></div>
-        <div class=" about-image"><img src="assets/images/about-3.png" alt="Metāla cauruļu griešana"></div>
-        <div class=" about-image"><img src="assets/images/about-4.png" alt="Poliurs cauruļu ražošana"></div>
+        <div class="about-image"><img src="assets/images/about-1.png" width="216" height="216"
+            alt="Poliurs cauruļu ražošana"></div>
+        <div class=" about-image"><img src="assets/images/about-2.png" width="216" height="216"
+            alt="Kvalicifēts Poliurs darbinieks"></div>
+        <div class=" about-image"><img src="assets/images/about-3.png" width="216" height="216"
+            alt="Metāla cauruļu griešana"></div>
+        <div class=" about-image"><img src="assets/images/about-4.png" width="216" height="216"
+            alt="Poliurs cauruļu ražošana"></div>
       </div>
     </section>
     <div class=" section-separator" aria-hidden="true"></div>
@@ -147,11 +153,11 @@
                 caurules, 80 līkumus, 36 nekustīgos balstus</p>
             </div>
             <div class="projects-nav">
-              <button class="arrow arrow-left"></button>
-              <button class="project-selector"></button>
-              <button class="project-selector"></button>
-              <button class="project-selector"></button>
-              <button class="arrow arrow-right"></button>
+              <button class="arrow arrow-left" aria-label="Atpakaļ"></button>
+              <button class="project-selector" aria-label="Rādīt pirmo"></button>
+              <button class="project-selector" aria-label="Rādīt otro"></button>
+              <button class="project-selector" aria-label="Rādīt trešo"></button>
+              <button class="arrow arrow-right" aria-label="Uz priekšu"></button>
             </div>
           </div>
         </div>

@@ -13,6 +13,25 @@ const toggleLangMenuOnClick = () => {
   hideLangMenu();
 }
 
+function checkTabPress(e) {
+  let activeElement;
+  console.log(e.key)
+  if (e.key == "Enter") {
+    activeElement = document.activeElement;
+    if (activeElement.tagName.toLowerCase() == 'li') {
+      langMenu.childNodes.forEach(el => el.tabIndex = 0)
+      if (['LV', 'RU', 'EN'].includes(activeElement.innerHTML)) {
+        toggleLanguage(activeElement.innerHTML)
+      }
+      toggleLangMenuOnClick()
+    }
+  }
+}
+document.querySelector('nav').addEventListener('keyup', checkTabPress);
+if (document.activeElement === langMenu) {
+  showLangMenu()
+}
+
 if (langMenu.classList.contains("hidden")) {
   selectedLang.addEventListener("mouseover", showLangMenuOnMouseover, false)
 };
