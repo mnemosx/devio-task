@@ -120,9 +120,10 @@ p {
 
 .header-container {
   height: 849px;
-  background: linear-gradient(180deg, rgba($black, 0.56) 0%, rgba($black, 0) 30.62%), linear-gradient(0deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(assets/images/hero-1.png) center / cover no-repeat;
+  background: linear-gradient(180deg, rgba($black, 0.56) 0%, rgba($black, 0) 30.62%), linear-gradient(0deg, rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45));
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+  position: relative;
 
   .header-nav {
     display: flex;
@@ -193,6 +194,20 @@ p {
           }
         }
       }
+    }
+  }
+
+  .hero-carousel {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: $black;
+
+    .carousel-cell>img {
+      width: 100vw;
     }
   }
 }
@@ -537,9 +552,7 @@ p {
               bottom: -14px;
               pointer-events: none;
             }
-
           }
-
         }
       }
     }

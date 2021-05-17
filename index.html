@@ -16,6 +16,7 @@
   <meta name="description"
     content="SIA „Poliurs” ir 1995. gadā dibināts uzņēmums, kurš pamatdarbību veic divos galvenajos novirzienos: rūpnieciski izolētu cauruļvadu ražošana un montāža; ūdensvada cauruļu un dažādu profīlveida izstrādājumu ražošana." />
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
   <title>Poliurs</title>
 </head>
 
@@ -41,6 +42,11 @@
         </ul>
       </nav>
     </header>
+    <div class="hero-carousel"
+      data-flickity='{ "freeScroll": "true", "contain": true, "pageDots": true, "prevNextButtons": false }'>
+      <div class="carousel-cell"><img src="assets/images/hero-1.png" alt="Uzņēmuma ražotās caurules"></div>
+      <div class="carousel-cell"><img src="assets/images/hero-2.png" alt="Izolētas caurules"></div>
+    </div>
   </div>
   <main>
     <section class="main-col products">
@@ -230,6 +236,7 @@
     </div>
   </main>
   <script type="text/javascript" src="script.js"></script>
+  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 
 </body>
 
